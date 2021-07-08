@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Enchanting table and Anvil took only the necessary xp",
+    "icon": {
+      "item": "minecraft:enchanting_table"
+    },
+    "show_toast": false,
+    "title": "FairEnchanting&Anvil"
+  },
+  "parent": "global:credits"
+}

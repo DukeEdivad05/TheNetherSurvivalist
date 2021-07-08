@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "thenethersurvivalist:red_dye_from_nether_wart"
+    ]
+  },
+  "criteria": {
+    "has_ink_sac": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:nether_wart"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "thenethersurvivalist:red_dye_from_nether_wart"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ink_sac",
+      "has_the_recipe"
+    ]
+  ]
+}

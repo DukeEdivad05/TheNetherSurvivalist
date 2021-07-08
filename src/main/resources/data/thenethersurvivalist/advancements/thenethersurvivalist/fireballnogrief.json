@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "FireballNoGrief",
+    "icon": {
+      "item": "minecraft:fire_charge"
+    },
+    "show_toast": false,
+    "title": "FireballNoGrief"
+  },
+  "parent": "global:credits"
+}

@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Allow to plant golden_carrot",
+    "icon": {
+      "item": "minecraft:golden_carrot"
+    },
+    "show_toast": false,
+    "title": "GoldenCarrotsPlant"
+  },
+  "parent": "global:credits"
+}

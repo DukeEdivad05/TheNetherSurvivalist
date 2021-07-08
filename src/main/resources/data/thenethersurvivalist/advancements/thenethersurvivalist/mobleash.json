@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "MobLeash",
+    "icon": {
+      "item": "minecraft:lead"
+    },
+    "show_toast": false,
+    "title": "MobLeash"
+  },
+  "parent": "global:credits"
+}

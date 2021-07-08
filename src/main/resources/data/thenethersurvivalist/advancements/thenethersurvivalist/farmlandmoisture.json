@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Farmland moisture do not require water near them",
+    "icon": {
+      "item": "minecraft:farmland"
+    },
+    "show_toast": false,
+    "title": "FarmlandMoisture"
+  },
+  "parent": "global:credits"
+}

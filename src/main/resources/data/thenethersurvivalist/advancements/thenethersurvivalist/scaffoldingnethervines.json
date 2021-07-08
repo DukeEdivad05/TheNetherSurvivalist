@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Allow you to craft scaffolding with nether vines",
+    "icon": {
+      "item": "minecraft:scaffolding"
+    },
+    "show_toast": false,
+    "title": "ScaffoldingNetherVines"
+  },
+  "parent": "global:credits"
+}

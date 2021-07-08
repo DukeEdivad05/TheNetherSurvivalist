@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Allow you to craft target with wart block",
+    "icon": {
+      "item": "minecraft:target"
+    },
+    "show_toast": false,
+    "title": "TargetWartBlock"
+  },
+  "parent": "global:credits"
+}

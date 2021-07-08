@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Without any spawnpoint you spawn on the Nether dimension",
+    "icon": {
+      "item": "minecraft:netherrack"
+    },
+    "show_toast": false,
+    "title": "NetherSpawn"
+  },
+  "parent": "global:credits"
+}

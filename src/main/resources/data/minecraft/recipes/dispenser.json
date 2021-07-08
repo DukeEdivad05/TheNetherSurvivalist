@@ -1,0 +1,22 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "###",
+        "#+#",
+        "#*#"
+    ],
+    "key": {
+        "#" :{
+            "item": "minecraft:blackstone"
+        },
+        "+" :{
+            "item": "minecraft:bow"
+        },
+        "*" :{
+            "item": "minecraft:redstone"
+        }
+    },
+    "result": {
+        "item": "dispenser"
+    }
+}

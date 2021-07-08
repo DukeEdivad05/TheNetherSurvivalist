@@ -1,0 +1,60 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "minecraft:comparator"
+        ]
+    },
+    "criteria": {
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "minecraft:comparator"
+            }
+        },
+        "has_item_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:polished_blackstone"
+                    }
+                ]
+            }
+        },
+        "has_item_1": {
+            "trigger":"minecraft:inventory_changed",
+            "conditions": {
+                "items" : [
+                    {
+                        "item":"minecraft:redstone_torch"
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger":"minecraft:inventory_changed",
+            "conditions": {
+                "items" : [
+                    {
+                        "item":"minecraft:quartz"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_0",
+            "has_the_recipe"
+        ],
+        [
+            "has_item_1",
+            "has_the_recipe"
+        ],
+        [
+            "has_item_2",
+            "has_the_recipe"
+        ]
+    ]
+}

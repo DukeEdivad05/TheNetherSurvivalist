@@ -1,0 +1,40 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.fabricmc.thenethersurvivalist.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "AbstractFireBlockMixin",
+    "AnvilBlockMixin",
+    "AnvilContainerMixin",
+    "AnvilScreenMixin",
+    "BlockMixin",
+    "ChannelingEnchantmentMixin",
+    "CoralUndead",
+    "CrashReport_noopMixin",
+    "EnchantingTableBlockMixin",
+    "FairAnvil",
+    "FairEnchanting",
+    "FarmlandBlockMixin",
+    "FireballEntityMixin",
+    "FrostWalkerEnchantmentMixin",
+    "ImpalingEnchantmentMixin",
+    "LoyaltyEnchantmentMixin",
+    "LuckEnchantmentMixin",
+    "LureEnchantmentMixin",
+    "MendingEnchantmentMixin",
+    "MinecraftServerMixin",
+    "NetherDepthStriderMixin",
+    "NetherrackBlockMixin",
+    "PlayerEntityMixin",
+    "PlayerManagerMixin",
+    "RespirationEnchantmentMixin",
+    "RiptideEnchantmentMixin",
+    "ShearsItemMixin",
+    "WitherSkullEntityMixin",
+    "WorldMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

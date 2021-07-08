@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Removed all aquatic enchantments except for DepthStrider and AquaAffintiy",
+    "icon": {
+      "item": "minecraft:enchanted_book"
+    },
+    "show_toast": false,
+    "title": "RemovedAquaticEnchantments"
+  },
+  "parent": "global:credits"
+}

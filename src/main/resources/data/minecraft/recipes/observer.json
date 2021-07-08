@@ -1,0 +1,22 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "###",
+        "**+",
+        "###"
+    ],
+    "key": {
+        "#" :{
+            "item": "minecraft:blackstone"
+        },
+        "+" :{
+            "item": "minecraft:quartz"
+        },
+        "*" :{
+            "item": "minecraft:redstone"
+        }
+    },
+    "result": {
+        "item": "observer"
+    }
+}

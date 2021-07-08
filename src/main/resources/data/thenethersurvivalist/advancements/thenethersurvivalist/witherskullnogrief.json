@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "WitherSkullNoGrief",
+    "icon": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "show_toast": false,
+    "title": "WitherSkullNoGrief"
+  },
+  "parent": "global:credits"
+}

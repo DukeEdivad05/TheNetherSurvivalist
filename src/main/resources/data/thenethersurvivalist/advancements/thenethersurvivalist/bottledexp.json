@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "BottledExp",
+    "icon": {
+      "item": "minecraft:experience_bottle"
+    },
+    "show_toast": false,
+    "title": "BottledExp"
+  },
+  "parent": "global:credits"
+}

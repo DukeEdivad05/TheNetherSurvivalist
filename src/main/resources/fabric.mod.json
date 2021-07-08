@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "thenethersurvivalist",
+  "version": "${version}",
+
+  "name": "The Nether Survivalist",
+  "description": "This is a Triton_707's The Nether Survivalist mod",
+  "authors": [
+    "DukeEdivad05",
+    "BisUmTo"
+  ],
+  "contact": {
+    "homepage": "https://www.twitch.tv/triton_707",
+    "sources": "https://dukeedivad05.github.io/"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/thenethersurvivalist/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.fabricmc.thenethersurvivalist.client.ClientLoad"
+    ],
+    "main": [
+      "net.fabricmc.thenethersurvivalist.Load"
+    ]
+  },
+  "mixins": [
+    "thenethersurvivalist.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x",
+    "carpet": ">=1.4.24"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

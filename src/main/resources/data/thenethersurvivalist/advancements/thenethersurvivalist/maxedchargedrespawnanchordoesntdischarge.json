@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "A respawn anchor with four charges does not discharge on death",
+    "icon": {
+      "item": "minecraft:respawn_anchor"
+    },
+    "show_toast": false,
+    "title": "RespawnAnchorDischarging"
+  },
+  "parent": "global:credits"
+}

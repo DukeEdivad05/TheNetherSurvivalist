@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Graves",
+    "icon": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "show_toast": false,
+    "title": "Graves"
+  },
+  "parent": "global:credits"
+}

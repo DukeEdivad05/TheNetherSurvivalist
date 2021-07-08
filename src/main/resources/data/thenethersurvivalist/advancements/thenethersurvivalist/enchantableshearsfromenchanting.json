@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Allow to enchant shears from enchanting table",
+    "icon": {
+      "item": "minecraft:shears"
+    },
+    "show_toast": false,
+    "title": "EnchantableShears"
+  },
+  "parent": "global:credits"
+}

@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Allow you to craft red dye from nether wart",
+    "icon": {
+      "item": "minecraft:red_dye"
+    },
+    "show_toast": false,
+    "title": "RedDye"
+  },
+  "parent": "global:credits"
+}

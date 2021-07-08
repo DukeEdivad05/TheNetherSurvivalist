@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Allow to craft black dye from flint",
+    "icon": {
+      "item": "minecraft:flint"
+    },
+    "show_toast": false,
+    "title": "BlackDyeFromFlint"
+  },
+  "parent": "global:credits"
+}

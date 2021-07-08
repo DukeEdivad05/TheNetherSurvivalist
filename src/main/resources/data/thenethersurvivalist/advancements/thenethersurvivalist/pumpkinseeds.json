@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Pumpkin seed spawn in bastions",
+    "icon": {
+      "item": "minecraft:pumpkin_seeds"
+    },
+    "show_toast": false,
+    "title": "Pumpkin Seeds"
+  },
+  "parent": "global:credits"
+}

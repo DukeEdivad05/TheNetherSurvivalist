@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I~I",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "~": {
+      "item": "minecraft:string"
+    },
+    "I": {
+      "tag": "thenethersurvivalist:nether_vines"
+    }
+  },
+  "result": {
+    "item": "minecraft:scaffolding",
+    "count": 6
+  }
+}

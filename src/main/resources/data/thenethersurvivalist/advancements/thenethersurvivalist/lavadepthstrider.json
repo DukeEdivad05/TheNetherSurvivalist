@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Adapted DepthStrider enchantment for lava",
+    "icon": {
+      "item": "minecraft:lava_bucket"
+    },
+    "show_toast": false,
+    "title": "LavaDepthStrider"
+  },
+  "parent": "global:credits"
+}

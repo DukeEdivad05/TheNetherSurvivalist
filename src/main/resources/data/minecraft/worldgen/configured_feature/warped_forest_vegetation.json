@@ -1,0 +1,63 @@
+{
+  "config": {
+    "feature": {
+      "config": {
+        "state_provider": {
+          "entries": [
+            {
+              "weight": 79,
+              "data": {
+                "Name": "minecraft:warped_roots"
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:crimson_roots"
+              }
+            },
+            {
+              "weight": 13,
+              "data": {
+                "Name": "minecraft:warped_fungus"
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:crimson_fungus"
+              }
+            },
+            {
+              "weight": 3,
+              "data":{
+                "Name": "minecraft:tube_coral",
+                "Properties": {
+                  "waterlogged" : "false"
+                }
+              }
+            },
+            {
+              "weight": 3,
+              "data":{
+                "Name": "minecraft:tube_coral_fan",
+                "Properties": {
+                  "waterlogged" : "false"
+                }
+              }
+            }
+          ],
+          "type": "minecraft:weighted_state_provider"
+        }
+      },
+      "type": "minecraft:nether_forest_vegetation"
+    },
+    "decorator": {
+      "config": {
+        "count": 5
+      },
+      "type": "minecraft:count_multilayer"
+    }
+  },
+  "type": "minecraft:decorated"
+}

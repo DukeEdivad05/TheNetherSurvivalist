@@ -1,0 +1,18 @@
+{
+     "criteria": {
+          "trigger": {
+               "trigger": "minecraft:tick"
+          }
+     },
+     "display": {
+          "announce_to_chat": false,
+          "description": "Special thanks to LoreSchaeffer & UltroGhast",
+          "icon": {
+               "item": "minecraft:player_head",
+               "nbt": "{SkullOwner:{Name: \"Edivad05\", Properties: {textures: [{Value: \"ewogICJ0aW1lc3RhbXAiIDogMTYxNDgzOTcxMzk2NiwKICAicHJvZmlsZUlkIiA6ICJiN2E5OTI0MzEwYzc0OThiYmRjY2U1ZmZhZDdlNjQ1OSIsCiAgInByb2ZpbGVOYW1lIiA6ICJFZGl2YWQwNSIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lMTc0MmMwYzQ2OTEyZjczYmEwMGNhYmMwYzI3ZTgzNGY0ODkxMTMyZmRiYTY5MmYwMGE1ODZlOTQ0NjIzMDgxIgogICAgfQogIH0KfQ==\"}]}}}"
+          },
+          "show_toast": false,
+          "title": "BisUmTo & DukeEdivad05"
+     },
+     "parent": "global:root"
+}

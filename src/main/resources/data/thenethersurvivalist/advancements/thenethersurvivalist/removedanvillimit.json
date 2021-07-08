@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Remove Anvil Limit",
+    "icon": {
+      "item": "minecraft:anvil"
+    },
+    "show_toast": false,
+    "title": "RemovedAnvilLimit"
+  },
+  "parent": "global:credits"
+}

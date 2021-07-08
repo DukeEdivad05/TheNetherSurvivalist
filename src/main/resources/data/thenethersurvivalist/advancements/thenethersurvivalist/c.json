@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "/c",
+    "icon": {
+      "item": "minecraft:observer"
+    },
+    "show_toast": false,
+    "title": "/c"
+  },
+  "parent": "global:credits"
+}
