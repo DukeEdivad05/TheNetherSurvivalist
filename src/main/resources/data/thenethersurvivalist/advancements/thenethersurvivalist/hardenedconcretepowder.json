@@ -6,12 +6,12 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Removed all aquatic enchantments except for DepthStrider and LavaAffintiy",
+    "description": "You can harden concrete powder with water bottle",
     "icon": {
-      "item": "minecraft:enchanted_book"
+      "item": "minecraft:white_concrete_powder"
     },
     "show_toast": false,
-    "title": "RemovedAquaticEnchantments"
+    "title": "HardenConcretePowder"
   },
   "parent": "global:credits"
 }

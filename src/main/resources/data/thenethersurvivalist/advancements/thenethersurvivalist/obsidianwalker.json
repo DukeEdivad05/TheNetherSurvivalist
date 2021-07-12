@@ -6,12 +6,12 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Removed all aquatic enchantments except for DepthStrider and LavaAffintiy",
+    "description": "You can obtain ObsidianWalker from enchanting and it generate obsidian on lava",
     "icon": {
-      "item": "minecraft:enchanted_book"
+      "item": "minecraft:obsidian"
     },
     "show_toast": false,
-    "title": "RemovedAquaticEnchantments"
+    "title": "ObsidianWalker"
   },
   "parent": "global:credits"
 }

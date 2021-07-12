@@ -22,7 +22,7 @@ public abstract class BlockMixin implements ItemConvertible {
 
     @Redirect(method = "afterBreak", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;dropStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)V"))
     private void onDropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack){
-        if (TheNetherSurvivalistSettings.carefulBreak && entity instanceof PlayerEntity && entity.isInSneakingPose()) {
+        if (TheNetherSurvivalistSettings.carefulBreak && entity instanceof PlayerEntity && entity.isSneaking()) {
             CarefulBreakUtils.placeItemInInventory(state,world,pos,blockEntity,entity,stack);
         }else{
             Block.dropStacks(state,world,pos,blockEntity,entity,stack);
@@ -32,7 +32,7 @@ public abstract class BlockMixin implements ItemConvertible {
     //carefulBreak PISTON_HEADS
     @Inject(method = "onBreak", at = @At("HEAD"))
     private void onBreak1(World world, BlockPos pos, BlockState state, PlayerEntity player, CallbackInfo ci) {
-        if(TheNetherSurvivalistSettings.carefulBreak && player.isInSneakingPose()) {
+        if(TheNetherSurvivalistSettings.carefulBreak && player.isSneaking()) {
             if (state.getBlock() == Blocks.PISTON_HEAD) {
                 Direction direction = state.get(FacingBlock.FACING).getOpposite();
                 pos = pos.offset(direction);
