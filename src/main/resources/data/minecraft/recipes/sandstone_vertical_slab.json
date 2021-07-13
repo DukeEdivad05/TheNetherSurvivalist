@@ -1,0 +1,17 @@
+{
+  "key": {
+    "#": {
+      "item": "minecraft:sandstone"
+    }
+  },
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 6,
+    "item": "minecraft:sandstone_vertical_slab"
+  },
+  "type": "minecraft:crafting_shaped"
+}

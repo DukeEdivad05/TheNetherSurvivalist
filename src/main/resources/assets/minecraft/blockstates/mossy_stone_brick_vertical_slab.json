@@ -1,0 +1,42 @@
+{
+    "variants": {
+        "facing=east,type=double": {
+            "model": "minecraft:block/mossy_stone_bricks",
+            "uvlock": true,
+            "y": 90
+        },
+        "facing=east,type=single": {
+            "model": "minecraft:block/mossy_stone_brick_vertical_slab",
+            "uvlock": true,
+            "y": 90
+        },
+        "facing=north,type=double": {
+            "model": "minecraft:block/mossy_stone_bricks",
+            "uvlock": true
+        },
+        "facing=north,type=single": {
+            "model": "minecraft:block/mossy_stone_brick_vertical_slab",
+            "uvlock": true
+        },
+        "facing=south,type=double": {
+            "model": "minecraft:block/mossy_stone_bricks",
+            "uvlock": true,
+            "y": 180
+        },
+        "facing=south,type=single": {
+            "model": "minecraft:block/mossy_stone_brick_vertical_slab",
+            "uvlock": true,
+            "y": 180
+        },
+        "facing=west,type=double": {
+            "model": "minecraft:block/mossy_stone_bricks",
+            "uvlock": true,
+            "y": 270
+        },
+        "facing=west,type=single": {
+            "model": "minecraft:block/mossy_stone_brick_vertical_slab",
+            "uvlock": true,
+            "y": 270
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/side",
+  "textures": {
+    "block": "block/quartz_block_bottom"
+  }
+}

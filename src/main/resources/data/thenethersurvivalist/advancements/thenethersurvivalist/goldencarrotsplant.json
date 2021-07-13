@@ -6,7 +6,7 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Allow to plant golden_carrot",
+    "description": "Allow to plant golden_carrot. Thanks UltroGhast",
     "icon": {
       "item": "minecraft:golden_carrot"
     },

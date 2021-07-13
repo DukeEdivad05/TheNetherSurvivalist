@@ -20,14 +20,16 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.fabricmc.thenethersurvivalist.client.ClientLoad"
+      "thenethersurvivalist.client.ClientLoad"
     ],
     "main": [
-      "net.fabricmc.thenethersurvivalist.Load"
+      "thenethersurvivalist.Load",
+      "gnotterosdecorations.GnotDeco"
     ]
   },
   "mixins": [
-    "thenethersurvivalist.mixins.json"
+    "thenethersurvivalist.mixins.json",
+    "carpetaddons.mixins.json"
   ],
 
   "depends": {

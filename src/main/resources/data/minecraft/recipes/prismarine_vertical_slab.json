@@ -1,0 +1,17 @@
+{
+  "key": {
+    "#": {
+      "item": "minecraft:prismarine"
+    }
+  },
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 6,
+    "item": "minecraft:prismarine_vertical_slab"
+  },
+  "type": "minecraft:crafting_shaped"
+}

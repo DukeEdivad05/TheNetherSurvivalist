@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/side",
+  "textures": {
+    "block": "block/red_sandstone_top"
+  }
+}

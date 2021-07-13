@@ -1,14 +1,13 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.thenethersurvivalist.mixin",
+  "package": "thenethersurvivalist.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "AbstractFireBlockMixin",
     "AnvilBlockMixin",
     "AnvilContainerMixin",
     "AnvilScreenMixin",
-    "BlockMixin",
     "ChannelingEnchantmentMixin",
     "ConcretePowderBlockMixin",
     "CoralUndead",
