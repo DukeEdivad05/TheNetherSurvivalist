@@ -32,6 +32,8 @@ public class TheNetherSurvivalistExtension implements CarpetExtension {
         CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("c", false));
         CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("graves", false));
         CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("mobleash", false));
+        CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("crumbleconcrete", false));
+        CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("revivecoral", false));
     }
 
 //    @Override

@@ -138,4 +138,18 @@ public class TheNetherSurvivalistSettings {
             category = {SURVIVAL, FEATURE, EXPERIMENTAL, THENETHERSURVIVALIST}
     )
     public static boolean EnchantableShears = true;
+
+    @Rule(
+            desc = "Allow to revive dead coral with water bottle",
+            appSource = "revivecoral",
+            category = {SURVIVAL, FEATURE, THENETHERSURVIVALIST}
+    )
+    public static boolean reviveCoral = true;
+
+    @Rule(
+            desc = "Allow you to transform concrete to concrete powder filling a glass bottle",
+            appSource = "crumbleconcrete",
+            category = {SURVIVAL, FEATURE, THENETHERSURVIVALIST}
+    )
+    public static boolean crumbleConcrete = true;
 }

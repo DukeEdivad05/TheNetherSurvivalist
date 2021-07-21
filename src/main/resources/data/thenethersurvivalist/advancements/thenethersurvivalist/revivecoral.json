@@ -6,12 +6,12 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Removed all aquatic enchantments except for DepthStrider and LavaAffinity",
+    "description": "Allow to revive dead coral with water bottle",
     "icon": {
-      "item": "minecraft:enchanted_book"
+      "item": "minecraft:dead_horn_coral_fan"
     },
     "show_toast": false,
-    "title": "RemovedAquaticEnchantments"
+    "title": "ReviveCoral"
   },
   "parent": "global:credits"
 }

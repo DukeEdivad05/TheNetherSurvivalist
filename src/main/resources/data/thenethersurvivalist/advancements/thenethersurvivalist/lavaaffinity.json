@@ -11,7 +11,7 @@
       "item": "minecraft:lava_bucket"
     },
     "show_toast": false,
-    "title": "LavaAffintiy"
+    "title": "LavaAffinity"
   },
   "parent": "global:credits"
 }

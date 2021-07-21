@@ -6,12 +6,12 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Removed all aquatic enchantments except for DepthStrider and LavaAffinity",
+    "description": "Allow you to transform concrete to concrete powder filling a glass bottle",
     "icon": {
-      "item": "minecraft:enchanted_book"
+      "item": "minecraft:white_concrete"
     },
     "show_toast": false,
-    "title": "RemovedAquaticEnchantments"
+    "title": "CrumbleConcrete"
   },
   "parent": "global:credits"
 }
