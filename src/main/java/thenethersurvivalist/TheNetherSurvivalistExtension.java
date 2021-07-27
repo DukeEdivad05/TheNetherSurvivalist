@@ -5,11 +5,12 @@ import carpet.CarpetServer;
 import carpet.script.CarpetScriptServer;
 import carpet.script.bundled.BundledModule;
 import com.mojang.brigadier.CommandDispatcher;
-import thenethersurvivalist.utils.FlyCommand;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
 import org.apache.commons.io.IOUtils;
+import thenethersurvivalist.utils.FlyCommand;
+import thenethersurvivalist.utils.VersionCommand;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -18,7 +19,7 @@ import java.util.Locale;
 public class TheNetherSurvivalistExtension implements CarpetExtension {
     public static final String MOD_ID = "thenethersurvivalist";
     public static final String MOD_NAME = "The Nether Survivalist";
-    public static final String MOD_VERSION = "1.0.0";
+    public static final String MOD_VERSION = "1.0.13";
 
     static {
         CarpetServer.manageExtension(new TheNetherSurvivalistExtension());
@@ -46,6 +47,7 @@ public class TheNetherSurvivalistExtension implements CarpetExtension {
     @Override
     public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
         FlyCommand.register(dispatcher);
+        VersionCommand.register(dispatcher);
     }
 
     @Override

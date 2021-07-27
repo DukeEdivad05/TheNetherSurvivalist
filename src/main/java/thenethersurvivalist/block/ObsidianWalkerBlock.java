@@ -3,6 +3,7 @@ package thenethersurvivalist.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.IceBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -11,15 +12,17 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class ObsidianWalkerBlock extends Block {
+public class ObsidianWalkerBlock extends IceBlock {
     public static final IntProperty AGE;
 
     public ObsidianWalkerBlock(Settings settings) {
         super(settings);
+        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0));
     }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
@@ -27,7 +30,7 @@ public class ObsidianWalkerBlock extends Block {
     }
 
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if ((random.nextInt(3) == 0) && world.getDimension().isUltrawarm() && this.increaseAge(state, world, pos)) {
+        if ((random.nextInt(3) == 0 || this.canMelt(world, pos, 4)) && world.getDimension().isUltrawarm() && this.increaseAge(state, world, pos)) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             Direction[] var6 = Direction.values();
             int var7 = var6.length;
@@ -59,10 +62,30 @@ public class ObsidianWalkerBlock extends Block {
 
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         if (block == this) {
-            this.melt(state, world, pos);
+            this.increaseAge(state, world, pos);
         }
 
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
+    }
+
+    private boolean canMelt(BlockView world, BlockPos pos, int maxNeighbors) {
+        int i = 0;
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        Direction[] var6 = Direction.values();
+        int var7 = var6.length;
+
+        for(int var8 = 0; var8 < var7; ++var8) {
+            Direction direction = var6[var8];
+            mutable.set(pos, direction);
+            if (world.getBlockState(mutable).isOf(this)) {
+                ++i;
+                if (i >= maxNeighbors) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public void melt(BlockState state, World world, BlockPos pos) {
