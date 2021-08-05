@@ -1,3 +1,7 @@
 #> This function will run on datapack loading
 
-tellraw @a {"text":"Datapack The Nether Survivalist successfully installed","color":"red"}
+gamerule logAdminCommands true
+
+scoreboard objectives add Scambi dummy
+
+scoreboard objectives add DeathCounter deathCount

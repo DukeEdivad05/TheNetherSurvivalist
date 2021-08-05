@@ -11,14 +11,12 @@
     "ChannelingEnchantmentMixin",
     "ConcretePowderBlockMixin",
     "CoralUndead",
-    "CrashReport_noopMixin",
     "EnchantingTableBlockMixin",
     "FairAnvil",
     "FairEnchanting",
     "FarmlandBlockMixin",
     "FireballEntityMixin",
     "FrostWalkerEnchantmentMixin",
-    "GameModeMixin",
     "ImpalingEnchantmentMixin",
     "LoyaltyEnchantmentMixin",
     "LuckEnchantmentMixin",
@@ -27,13 +25,17 @@
     "MinecraftServerMixin",
     "NetherDepthStriderMixin",
     "NetherrackBlockMixin",
+    "PistonBlockMixin",
     "PlayerEntityMixin",
     "PlayerManagerMixin",
     "RespirationEnchantmentMixin",
     "RiptideEnchantmentMixin",
+    "ServerWorldMixin",
     "ShearsItemMixin",
-    "WitherSkullEntityMixin",
-    "WorldMixin"
+    "WitherSkullEntityMixin"
+  ],
+  "client": [
+    "client.TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
