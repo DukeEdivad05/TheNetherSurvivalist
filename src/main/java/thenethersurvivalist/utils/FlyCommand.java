@@ -2,17 +2,16 @@ package thenethersurvivalist.utils;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import thenethersurvivalist.TheNetherSurvivalistSettings;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
+import thenethersurvivalist.TheNetherSurvivalistSettings;
 
 import java.util.Collection;
 import java.util.Collections;
 
 public class FlyCommand {
-    public static boolean Fly;
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("fly")
@@ -28,13 +27,11 @@ public class FlyCommand {
             players.forEach(serverPlayerEntity -> {
                 if(!serverPlayerEntity.abilities.allowFlying){
                     serverPlayerEntity.abilities.allowFlying = true;
-                    Fly = true;
                     serverPlayerEntity.sendAbilitiesUpdate();
                     serverPlayerEntity.sendMessage(new LiteralText("Fly On"), false);
                 } else if(serverPlayerEntity.abilities.allowFlying) {
                     serverPlayerEntity.abilities.allowFlying = false;
                     serverPlayerEntity.abilities.flying = false;
-                    Fly = false;
                     serverPlayerEntity.sendAbilitiesUpdate();
                     serverPlayerEntity.fallDistance = -(float) (serverPlayerEntity.getY() + 10.0D);
                     serverPlayerEntity.sendMessage(new LiteralText("Fly Off"), false);

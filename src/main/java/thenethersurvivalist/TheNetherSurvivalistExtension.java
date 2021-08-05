@@ -5,25 +5,22 @@ import carpet.CarpetServer;
 import carpet.script.CarpetScriptServer;
 import carpet.script.bundled.BundledModule;
 import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
 import org.apache.commons.io.IOUtils;
-import thenethersurvivalist.utils.FlyCommand;
-import thenethersurvivalist.utils.VersionCommand;
+import thenethersurvivalist.utils.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
+import java.util.Objects;
 
 public class TheNetherSurvivalistExtension implements CarpetExtension {
     public static final String MOD_ID = "thenethersurvivalist";
     public static final String MOD_NAME = "The Nether Survivalist";
-    public static final String MOD_VERSION = "1.0.13";
-
-    static {
-        CarpetServer.manageExtension(new TheNetherSurvivalistExtension());
-    }
+    public static final String MOD_VERSION = "1.1.0";
 
     @Override
     public void onGameStarted() {
@@ -35,19 +32,32 @@ public class TheNetherSurvivalistExtension implements CarpetExtension {
         CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("mobleash", false));
         CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("crumbleconcrete", false));
         CarpetScriptServer.registerSettingsApp(thenethersurvivalistDefaultScript("revivecoral", false));
+
+        // Advancement
+        CarpetScriptServer.registerBuiltInScript(thenethersurvivalistDefaultScript("advancements", false));
     }
 
-//    @Override
-//    public void onReload(MinecraftServer server) {
-//        file(TheNetherSurvivalistSettings.EndermanNoGrief,"enderman_holdable");
-//
-//        advancements(TheNetherSurvivalistSettings.NoNetherPortal,"nonetherportal");
-//    }
+    public static void loadScripts(MinecraftServer server) {
+        CarpetServer.scriptServer.addScriptHost(server.getCommandSource(), "advancements", null, true, true, false);
+    }
+
+    @Override
+    public void onServerLoadedWorlds(MinecraftServer server) {
+        loadScripts(server);
+    }
+
+    @Override
+    public void onReload(MinecraftServer server) {
+        loadScripts(server);
+    }
 
     @Override
     public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
         FlyCommand.register(dispatcher);
         VersionCommand.register(dispatcher);
+        PortalCommand.register(dispatcher);
+        Portal2Command.register(dispatcher);
+        Portal3Command.register(dispatcher);
     }
 
     @Override
@@ -60,7 +70,7 @@ public class TheNetherSurvivalistExtension implements CarpetExtension {
         try {
             module = new BundledModule(scriptName.toLowerCase(Locale.ROOT),
                     IOUtils.toString(
-                            BundledModule.class.getClassLoader().getResourceAsStream("assets/" + MOD_ID + "/scripts/" + scriptName + (isLibrary ? ".scl" : ".sc")),
+                            Objects.requireNonNull(BundledModule.class.getClassLoader().getResourceAsStream("assets/" + MOD_ID + "/scripts/" + scriptName + (isLibrary ? ".scl" : ".sc"))),
                             StandardCharsets.UTF_8
                     ), isLibrary);
         } catch (NullPointerException | IOException ignored) {
@@ -74,43 +84,4 @@ public class TheNetherSurvivalistExtension implements CarpetExtension {
             player.sendMessage(new LiteralText("Type /carpet for settings"), false);
         }
     }
-
-    public static void noop() {
-    }
-
-
-//    public void advancements(boolean ruleName, String advancementName) {
-//        File advancement = BundledModule.class.getClassLoader().getResourceAsStream("data/thenethersurvivalist/advancements/thenethersurvivalist" + advancementName + ".json");
-//        if(ruleName) {
-//            toggleOn(advancement);
-//        } else {
-//            toggleOff(advancement);
-//        }
-//    }
-//
-//    public void file(boolean ruleName, String fileName) {
-//        File file = BundledModule.class.getClassLoader().getResourceAsStream("data/minecraft/tags/blocks/" + fileName + ".json");
-//        if(ruleName) {
-//            toggleOn(file);
-//        } else {
-//            toggleOff(file);
-//        }
-//    }
-//
-//    public void toggleOff(File file) {
-//        String name = file.getName();
-//        if(!name.contains(".disabled")) {
-//            file.renameTo(new File(name + ".disabled"));
-//        }
-//    }
-//
-//    public void toggleOn(File file) {
-//        String name = file.getName();
-//        if(name.contains(".disabled")) {
-//            file.renameTo(new File(name.substring(0, name.lastIndexOf('.'))));
-//        }
-//    }
-
-    //"data/thenethersurvivalist/advancements/thenethersurvivalist" + advancementName + ".json"
-    //"data/minecraft/tags/blocks/" + fileName + ".json"
 }
