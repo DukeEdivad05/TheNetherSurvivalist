@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import thenethersurvivalist.TheNetherSurvivalistSettings;
 
 import java.util.Iterator;
 import java.util.Random;
@@ -24,7 +25,12 @@ public class NetherrackBlockMixin {
         if (!world.getBlockState(pos.up()).isTranslucent(world, pos)) {
             return false;
         } else {
-            Iterator var5 = BlockPos.iterate(pos.add(-4, -4, -4), pos.add(4, 4, 4)).iterator();
+            Iterator var5;
+            if (TheNetherSurvivalistSettings.NetherrackBoneMeal) {
+                var5 = BlockPos.iterate(pos.add(-4, -4, -4), pos.add(4, 4, 4)).iterator();
+            } else {
+                var5 = BlockPos.iterate(pos.add(-1, -1, -1), pos.add(1, 1, 1)).iterator();
+            }
 
             BlockPos blockPos;
             do {
@@ -45,16 +51,46 @@ public class NetherrackBlockMixin {
      */
     @Overwrite
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        Iterator varBone = BlockPos.iterate(pos.add(-1, -1, -1), pos.add(1, 1, 1)).iterator();
+        if (TheNetherSurvivalistSettings.NetherrackBoneMeal) {
+            Iterator varBone = BlockPos.iterate(pos.add(-1, -1, -1), pos.add(1, 1, 1)).iterator();
 
-         while (varBone.hasNext()) {
-             BlockPos pos1 = (BlockPos) varBone.next();
+            while (varBone.hasNext()) {
+                BlockPos pos1 = (BlockPos) varBone.next();
+                boolean bl = false;
+                boolean bl2 = false;
+                Iterator var7 = BlockPos.iterate(pos1.add(-3, -3, -3), pos1.add(3, 3, 3)).iterator();
+
+                while (var7.hasNext()) {
+                    BlockPos blockPos = (BlockPos) var7.next();
+                    BlockState blockState = world.getBlockState(blockPos);
+                    if (blockState.isOf(Blocks.WARPED_NYLIUM)) {
+                        bl2 = true;
+                    }
+
+                    if (blockState.isOf(Blocks.CRIMSON_NYLIUM)) {
+                        bl = true;
+                    }
+
+                    if (bl2 && bl) {
+                        break;
+                    }
+                }
+
+                if (bl2 && bl && world.getBlockState(pos1).isOf(Blocks.NETHERRACK)) {
+                    world.setBlockState(pos1, random.nextBoolean() ? Blocks.WARPED_NYLIUM.getDefaultState() : Blocks.CRIMSON_NYLIUM.getDefaultState(), 3);
+                } else if (bl2 && world.getBlockState(pos1).isOf(Blocks.NETHERRACK)) {
+                    world.setBlockState(pos1, Blocks.WARPED_NYLIUM.getDefaultState(), 3);
+                } else if (bl && world.getBlockState(pos1).isOf(Blocks.NETHERRACK)) {
+                    world.setBlockState(pos1, Blocks.CRIMSON_NYLIUM.getDefaultState(), 3);
+                }
+            }
+        } else {
             boolean bl = false;
             boolean bl2 = false;
-            Iterator var7 = BlockPos.iterate(pos1.add(-3, -3, -3), pos1.add(3, 3, 3)).iterator();
+            Iterator var7 = BlockPos.iterate(pos.add(-1, -1, -1), pos.add(1, 1, 1)).iterator();
 
-            while (var7.hasNext()) {
-                BlockPos blockPos = (BlockPos) var7.next();
+            while(var7.hasNext()) {
+                BlockPos blockPos = (BlockPos)var7.next();
                 BlockState blockState = world.getBlockState(blockPos);
                 if (blockState.isOf(Blocks.WARPED_NYLIUM)) {
                     bl2 = true;
@@ -69,12 +105,12 @@ public class NetherrackBlockMixin {
                 }
             }
 
-            if (bl2 && bl && world.getBlockState(pos1).isOf(Blocks.NETHERRACK)) {
-                world.setBlockState(pos1, random.nextBoolean() ? Blocks.WARPED_NYLIUM.getDefaultState() : Blocks.CRIMSON_NYLIUM.getDefaultState(), 3);
-            } else if (bl2 && world.getBlockState(pos1).isOf(Blocks.NETHERRACK)) {
-                world.setBlockState(pos1, Blocks.WARPED_NYLIUM.getDefaultState(), 3);
-            } else if (bl && world.getBlockState(pos1).isOf(Blocks.NETHERRACK)) {
-                world.setBlockState(pos1, Blocks.CRIMSON_NYLIUM.getDefaultState(), 3);
+            if (bl2 && bl) {
+                world.setBlockState(pos, random.nextBoolean() ? Blocks.WARPED_NYLIUM.getDefaultState() : Blocks.CRIMSON_NYLIUM.getDefaultState(), 3);
+            } else if (bl2) {
+                world.setBlockState(pos, Blocks.WARPED_NYLIUM.getDefaultState(), 3);
+            } else if (bl) {
+                world.setBlockState(pos, Blocks.CRIMSON_NYLIUM.getDefaultState(), 3);
             }
         }
     }

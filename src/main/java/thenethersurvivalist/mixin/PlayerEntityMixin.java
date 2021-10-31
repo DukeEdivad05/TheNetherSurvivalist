@@ -20,6 +20,8 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import thenethersurvivalist.Load;
+import thenethersurvivalist.TheNetherSurvivalistSettings;
 
 import java.util.Optional;
 
@@ -41,7 +43,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         Block block = blockState.getBlock();
         if (block instanceof RespawnAnchorBlock && (Integer)blockState.get(RespawnAnchorBlock.CHARGES) > 0 && RespawnAnchorBlock.isNether(world)) {
             Optional<Vec3d> optional = RespawnAnchorBlock.findRespawnPosition(EntityType.PLAYER, world, pos);
-            if (!bl2 && optional.isPresent() && (Integer)blockState.get(RespawnAnchorBlock.CHARGES) <= 3) {
+            if (!bl2 && optional.isPresent() && (Integer)blockState.get(RespawnAnchorBlock.CHARGES) <= 3 && !TheNetherSurvivalistSettings.RespawnAnchorDischarging) {
                 world.setBlockState(pos, (BlockState)blockState.with(RespawnAnchorBlock.CHARGES, (Integer)blockState.get(RespawnAnchorBlock.CHARGES) - 1), 3);
             }
 
@@ -100,7 +102,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             f /= 5.0F;
         }
 
-        if (this.isSubmergedIn(FluidTags.LAVA) && EnchantmentHelper.hasAquaAffinity(this)) {
+        if (this.isSubmergedIn(FluidTags.LAVA) && EnchantmentHelper.getEquipmentLevel(Load.LAVA_AFFINITY, this) > 0 && TheNetherSurvivalistSettings.LavaAffinity) {
             f *= 5.0F;
         }
 

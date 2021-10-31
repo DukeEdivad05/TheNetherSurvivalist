@@ -1,43 +1,53 @@
 package thenethersurvivalist.utils;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import net.minecraft.server.command.CommandManager;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import thenethersurvivalist.TheNetherSurvivalistSettings;
 
 import java.util.Collection;
-import java.util.Collections;
+
+import static net.minecraft.command.argument.EntityArgumentType.getPlayers;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
 
 public class FlyCommand {
-
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("fly")
-                .requires((serverCommandSource) -> TheNetherSurvivalistSettings.FlyCommand);
-
-        literalArgumentBuilder.executes(e -> toggle(Collections.singleton(e.getSource().getPlayer())));
-
-        dispatcher.register(literalArgumentBuilder);
-
+        dispatcher.register(literal("fly")
+                .requires(source -> TheNetherSurvivalistSettings.FlyCommand)
+                .then(argument("targets", EntityArgumentType.players())
+                        .executes(ctx -> fly(ctx.getSource(), getPlayers(ctx, "targets"))))
+                .executes(ctx -> fly(ctx.getSource(), null)));
     }
 
-    private static int toggle(Collection<ServerPlayerEntity> players) {
-            players.forEach(serverPlayerEntity -> {
-                if(!serverPlayerEntity.abilities.allowFlying){
-                    serverPlayerEntity.abilities.allowFlying = true;
-                    serverPlayerEntity.sendAbilitiesUpdate();
-                    serverPlayerEntity.sendMessage(new LiteralText("Fly On"), false);
-                } else if(serverPlayerEntity.abilities.allowFlying) {
-                    serverPlayerEntity.abilities.allowFlying = false;
-                    serverPlayerEntity.abilities.flying = false;
-                    serverPlayerEntity.sendAbilitiesUpdate();
-                    serverPlayerEntity.fallDistance = -(float) (serverPlayerEntity.getY() + 10.0D);
-                    serverPlayerEntity.sendMessage(new LiteralText("Fly Off"), false);
-                }
-            });
+    private static int fly(ServerCommandSource source, Collection<ServerPlayerEntity> targets) throws CommandSyntaxException {
 
-        return players.size();
+        if(targets == null) {
+            handlePlayers(source.getPlayer(), source);
+        } else {
+            targets.forEach(target -> handlePlayers(target, source));
+        }
+
+        return 1;
+    }
+
+    private static void handlePlayers(ServerPlayerEntity player, ServerCommandSource source) {
+        final Text name = player.getName();
+
+        if (!player.abilities.allowFlying) {
+            player.abilities.allowFlying = true;
+            player.sendMessage(new LiteralText("Fly On"), false);
+        } else {
+            player.abilities.allowFlying = false;
+            player.abilities.flying = false;
+            player.fallDistance = -(float) (player.getY() + 10.0D);
+            player.sendMessage(new LiteralText("Fly Off"), false);
+        }
+
+        player.sendAbilitiesUpdate();
     }
 }

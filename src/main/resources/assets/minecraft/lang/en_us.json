@@ -2420,9 +2420,9 @@
   "enchantment.minecraft.blast_protection": "Blast Protection",
   "enchantment.minecraft.projectile_protection": "Projectile Protection",
   "enchantment.minecraft.respiration": "Respiration",
-  "enchantment.minecraft.aqua_affinity": "Lava Affinity",
+  "enchantment.minecraft.aqua_affinity": "Aqua Affinity",
   "enchantment.minecraft.depth_strider": "Depth Strider",
-  "enchantment.minecraft.frost_walker": "Obsidian Walker",
+  "enchantment.minecraft.frost_walker": "Frost Walker",
   "enchantment.minecraft.soul_speed": "Soul Speed",
   "enchantment.minecraft.efficiency": "Efficiency",
   "enchantment.minecraft.silk_touch": "Silk Touch",
@@ -4863,5 +4863,9 @@
   "block.minecraft.waxed_exposed_cut_copper_vertical_slab": "Waxed Exposed Cut Copper Vertical Slab",
   "block.minecraft.waxed_oxidized_cut_copper_vertical_slab": "Waxed Oxidized Cut Copper Vertical Slab",
   "block.minecraft.waxed_weathered_cut_copper_vertical_slab": "Waxed Weathered Cut Copper Vertical Slab",
-  "block.minecraft.weathered_cut_copper_vertical_slab": "Weathered Cut Copper Vertical Slab"
+  "block.minecraft.weathered_cut_copper_vertical_slab": "Weathered Cut Copper Vertical Slab",
+
+  "enchantment.minecraft.obsidian_walker": "Obsidian Walker",
+  "enchantment.minecraft.nether_depth_strider": "Nether Depth Strider",
+  "enchantment.minecraft.lava_affinity": "Lava Affinity"
 }

@@ -19,10 +19,10 @@ public class AnvilContainerMixin {
 
     @Redirect(method = "updateResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/Enchantment;getMaxLevel()I"))
     private int getMaximumLevelProxy(Enchantment enchantment) {
-        if (TheNetherSurvivalistSettings.anvilLimit == 0) {
-            return enchantment.getMaxLevel();
+        if (TheNetherSurvivalistSettings.AnvilLimit.contains("+")) {
+            return enchantment.getMaxLevel() + Integer.parseInt("" + TheNetherSurvivalistSettings.AnvilLimit.charAt(1));
         }  else {
-            return TheNetherSurvivalistSettings.anvilLimit;
+            return Integer.parseInt(TheNetherSurvivalistSettings.AnvilLimit);
         }
     }
 }

@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import thenethersurvivalist.TheNetherSurvivalistSettings;
 
 @Mixin(ConcretePowderBlock.class)
 public class ConcretePowderBlockMixin extends FallingBlock {
@@ -29,7 +30,7 @@ public class ConcretePowderBlockMixin extends FallingBlock {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!player.isSpectator() && player.getStackInHand(Hand.MAIN_HAND).getItem() == Items.POTION && PotionUtil.getPotion(player.getStackInHand(Hand.MAIN_HAND)) == Potions.WATER) {
+        if (!player.isSpectator() && player.getStackInHand(Hand.MAIN_HAND).getItem() == Items.POTION && PotionUtil.getPotion(player.getStackInHand(Hand.MAIN_HAND)) == Potions.WATER && TheNetherSurvivalistSettings.HardenedConcretePowder) {
             world.setBlockState(pos, this.hardenedState, 3);
             player.setStackInHand(hand, new ItemStack(Items.GLASS_BOTTLE));
             return ActionResult.SUCCESS;

@@ -16,7 +16,7 @@ public class CoralUndead {
     @Inject(at = @At("HEAD"), method = "isInWater", cancellable = true)
     private static void isInWaterMixin(BlockState state, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         BlockState block2 = world.getBlockState(pos.down());
-        if (block2.isOf(Blocks.CRIMSON_NYLIUM) && TheNetherSurvivalistSettings.undeadCoral|| block2.isOf(Blocks.WARPED_NYLIUM) && TheNetherSurvivalistSettings.undeadCoral) {
+        if (block2.isOf(Blocks.CRIMSON_NYLIUM) && TheNetherSurvivalistSettings.UndeadCoral|| block2.isOf(Blocks.WARPED_NYLIUM) && TheNetherSurvivalistSettings.UndeadCoral) {
             cir.setReturnValue(true);
         }
     }
